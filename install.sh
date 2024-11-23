@@ -13,4 +13,4 @@ pnpm install
 pnpm run build
 
 touch ./database/database.sqlite
-php artisan migrate --seed
+php artisan migrate:fresh --seed || php artisan migrate --seed
