@@ -14,6 +14,8 @@
     @livewireStyles
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @stack('assets')
 </head>
 
 <body class="h-full">
@@ -212,6 +214,8 @@
     </div>
 
     @livewireScripts
+
+    @stack('scripts')
 </body>
 
 </html>
