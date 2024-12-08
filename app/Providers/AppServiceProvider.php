@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         Model::shouldBeStrict(! $this->app->isProduction());
         Model::unguard();
 
-        Password::defaults(fn () => $this->app->isProduction() ? Password::min(8)->max(20)->uncompromised() : null);
+        Password::defaults(fn () => $this->app->isProduction() ? Password::min(8)->max(24)->uncompromised() : null);
 
         Date::use(CarbonImmutable::class);
 
