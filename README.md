@@ -1,4 +1,10 @@
 <div align="left">
+  <a href="https://github.com/SantosVilanculos/laravel-empty-starter-kit/actions">
+    <img
+      src="https://img.shields.io/github/actions/workflow/status/SantosVilanculos/laravel-empty-starter-kit/tests.yml?label=tests"
+      alt="tests"
+    />
+  </a>
   <a href="https://github.com/SantosVilanculos/laravel-empty-starter-kit/blob/main/LICENSE">
     <img
       src="https://img.shields.io/github/license/SantosVilanculos/laravel-empty-starter-kit"
