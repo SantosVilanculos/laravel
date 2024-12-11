@@ -190,7 +190,7 @@
                             @csrf
 
                             <button type="submit"
-                                class="block w-full px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:bg-gray-700 hover:text-white">Sign
+                                class="block w-full px-3 py-2 text-base font-medium text-left text-gray-400 rounded-md hover:bg-gray-700 hover:text-white">Sign
                                 out</button>
                         </form>
                     </div>
