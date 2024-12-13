@@ -21,7 +21,7 @@
         "fakerphp/faker": "^1.23",
         "laradumps/laradumps": "^3.0",
         "laravel/pail": "^1.1",
-        "laravel/pint": "^1.18",
+        "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.1",
@@ -46,7 +46,9 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:models -N"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -55,10 +57,6 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
-        ],
-        "post-package-update": [
-            "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:models -N"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
