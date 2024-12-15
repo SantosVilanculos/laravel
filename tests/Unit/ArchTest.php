@@ -3,6 +3,7 @@
 describe('arch', function () {
     arch()->preset()->php();
     arch()->preset()->security();
+    arch()->preset()->laravel();
 
     arch()->expect('App')->toUseStrictTypes();
     arch()->expect('Database\Factories')->toUseStrictTypes();
