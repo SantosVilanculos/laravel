@@ -11,4 +11,6 @@ describe('arch', function () {
     arch()->expect('App')->classes()->not->toBeFinal();
     arch()->expect('Database\Factories')->classes()->not->toBeFinal();
     arch()->expect('Database\Seeders')->classes()->not->toBeFinal();
+
+    arch()->expect('App\Http\Controllers')->toExtendNothing();
 });
