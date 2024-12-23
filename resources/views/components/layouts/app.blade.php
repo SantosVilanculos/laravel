@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
         <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 
@@ -24,11 +24,7 @@
                     <div class="flex items-center justify-between h-16">
                         <div class="flex items-center">
                             <div class="shrink-0">
-                                <img
-                                    class="size-8"
-                                    src="{{ asset('favicon.svg') }}"
-                                    alt="{{ config('app.name', 'Laravel') }}"
-                                />
+                            <img class="size-8" src="{{ asset('favicon.svg') }}" alt="{{ config('app.name') }}" />
                             </div>
                             <div class="hidden md:block">
                                 <div class="flex items-baseline ml-10 space-x-4">
