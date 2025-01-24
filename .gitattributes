@@ -9,6 +9,6 @@
 *.ico binary
 *.woff2 binary
 
-/.github export-ignore
-CHANGELOG.md export-ignore
-.styleci.yml export-ignore
+/.github/ export-ignore
+/CHANGELOG.md export-ignore
+/.styleci.yml export-ignore
