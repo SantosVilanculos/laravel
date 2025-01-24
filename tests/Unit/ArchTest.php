@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 describe('arch', function () {
     arch()->preset()->php();
     arch()->preset()->security();
