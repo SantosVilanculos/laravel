@@ -2,6 +2,17 @@ name: Tests
 
 on:
   push:
+    paths-ignore:
+      - '.editorconfig'
+      - '.gitattributes'
+      - '.gitignore'
+      - '.prettierrc.json'
+      - '.prettierrc.json'
+      - 'LICENSE'
+      - 'README.md'
+      - 'install.sh'
+      - 'laradumps.yaml'
+      - 'screenshot.png'
     branches:
       - main
   pull_request:
