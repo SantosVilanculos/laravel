@@ -1,4 +1,4 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    plugins: [import('@tailwindcss/postcss'), import('@tailwindcss/forms'), import('@tailwindcss/aspect-ratio')]
+    plugins: [import('@tailwindcss/aspect-ratio'), import('@tailwindcss/forms')]
 };
