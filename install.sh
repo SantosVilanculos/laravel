@@ -10,6 +10,7 @@ if [ -f ./composer.lock ]; then
 
     php artisan ide-helper:generate
     php artisan ide-helper:models -N
+    php artisan vendor:publish --tag=log-viewer-assets
 
     touch ./database/database.sqlite
     php artisan migrate:fresh --seed || php artisan migrate --seed
