@@ -9,7 +9,7 @@
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 
-    <link rel="stylesheet" href="{{ asset('vendor/inter/4.0/inter.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('vendor/inter/4.1/inter.min.css') }}" />
 
     @livewireStyles
 
