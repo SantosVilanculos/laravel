@@ -3,18 +3,19 @@ name: Tests
 on:
   push:
     paths-ignore:
-      - './.editorconfig'
-      - './.gitattributes'
-      - './.gitignore'
-      - './.prettierrc.json'
-      - './.prettierrc.json'
-      - './LICENSE'
-      - './README.md'
-      - './install.sh'
-      - './laradumps.yaml'
-      - './screenshot.png'
+      - '.editorconfig'
+      - '.gitattributes'
+      - '.gitignore'
+      - '.prettierrc.json'
+      - '.prettierrc.json'
+      - 'LICENSE'
+      - 'README.md'
+      - 'install.sh'
+      - 'laradumps.yaml'
+      - 'screenshot.png'
     branches:
       - main
+      - development
   pull_request:
 
 permissions:
@@ -64,6 +65,9 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      - name: Execute static analysis tests
+        run: vendor/bin/phpstan analyse
 
       - name: Execute lint tests
         run: vendor/bin/pint --test
