@@ -21,7 +21,6 @@ yarn-error.log
 /.vscode
 /.zed
 
-/public/vendor/log-viewer/
 /_ide_helper_models.php
 /_ide_helper.php
 /composer.lock
