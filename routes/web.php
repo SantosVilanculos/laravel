@@ -4,4 +4,16 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'pages.dashboard');
+Route::view('/', 'pages.home')->name('home');
+
+Route::group(['middleware' => ['auth']], function (): void {
+    Route::view('/dashboard', 'pages.dashboard')->name('dashboard');
+});
+
+require __DIR__.'/settings.php';
+require __DIR__.'/auth.php';
+
+if (App::isLocal()) {
+    Route::view('/test', 'pages.test')
+        ->name('test');
+}

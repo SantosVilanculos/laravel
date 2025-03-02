@@ -20,5 +20,6 @@ return [
     'throttled' => 'Please wait before retrying.',
     'token' => 'This password reset token is invalid.',
     'user' => "We can't find a user with that email address.",
+    'same' => 'The new password can\'t be the same as the current password.',
 
 ];

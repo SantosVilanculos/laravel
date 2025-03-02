@@ -1,25 +1,31 @@
-import './bootstrap.js';
 import Swal from 'sweetalert2';
+import './bootstrap.js';
 
 document.addEventListener('livewire:init', () => {
-    Livewire.on('Swal', ({ titleText = undefined, text = undefined, icon = undefined }) => {
-        // titleText?: string | undefined
-        // text?: string | undefined
-        // icon?: string<'success' | 'error' | 'warning' | 'info' | 'question'> | undefined
+    Livewire.on(
+        'message',
+        ({ titleText = undefined, text = undefined, icon = undefined, timer = 3_000, showCloseButton = false }) => {
+            // titleText?: string | undefined
+            // text?: string | undefined
+            // icon?: string<'success' | 'error' | 'warning' | 'info' | 'question'> | undefined
+            // timer?: number | undefined
+            // showCloseButton?: boolean | undefined
 
-        Swal.fire({
-            titleText,
-            text,
-            icon,
-            toast: true,
-            position: 'top-end',
-            timer: 3_000,
-            timerProgressBar: true,
-            showConfirmButton: false,
-            didOpen: popup => {
-                popup.onmouseenter = Swal.stopTimer;
-                popup.onmouseleave = Swal.resumeTimer;
-            }
-        });
-    });
+            Swal.fire({
+                titleText,
+                text,
+                icon,
+                toast: true,
+                position: 'bottom',
+                timer,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                showCloseButton,
+                didOpen: popup => {
+                    popup.onmouseenter = Swal.stopTimer;
+                    popup.onmouseleave = Swal.resumeTimer;
+                }
+            });
+        }
+    );
 });
