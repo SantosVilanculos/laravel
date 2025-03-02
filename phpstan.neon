@@ -1,6 +1,8 @@
 parameters:
     level: max
 
+    treatPhpDocTypesAsCertain: false
+
     paths:
         - ./app
         - ./database
