@@ -1,4 +1,4 @@
-name: Tests
+name: tests
 
 on:
   push:
@@ -7,16 +7,17 @@ on:
       - '.gitattributes'
       - '.gitignore'
       - '.prettierrc.json'
-      - '.prettierrc.json'
+      - 'install.sh'
       - 'LICENSE'
       - 'README.md'
-      - 'install.sh'
-      - 'laradumps.yaml'
       - 'screenshot.png'
     branches:
       - main
       - development
   pull_request:
+    branches:
+      - main
+      - development
 
 permissions:
   contents: read
@@ -28,7 +29,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [8.2, 8.3]
+        php: [8.2, 8.3, 8.4]
 
     name: PHP ${{ matrix.php }}
 
@@ -52,13 +53,17 @@ jobs:
       - name: Generate app key
         run: php artisan key:generate
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v4
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
@@ -66,11 +71,5 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Execute static analysis tests
-        run: vendor/bin/phpstan analyse
-
-      - name: Execute lint tests
-        run: vendor/bin/pint --test
-
-      - name: Execute unit/feature tests
-        run: vendor/bin/pest --ci
+      - name: Tests
+        run: composer run test
