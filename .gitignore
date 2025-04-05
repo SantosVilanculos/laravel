@@ -21,6 +21,7 @@ yarn-error.log
 /.vscode
 /.zed
 
+/public/vendor/log-viewer
 /composer.lock
 /laradumps.yaml
 /package-lock.json
