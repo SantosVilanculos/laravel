@@ -6,3 +6,7 @@
 ```sh
 chmod +x ./install.sh && ./install.sh
 ```
+
+```sh
+composer run dev
+```
