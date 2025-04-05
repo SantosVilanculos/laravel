@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use Carbon\CarbonImmutable;
-// use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
+use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Date;
@@ -29,18 +29,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        DB::prohibitDestructiveCommands(App::isProduction());
-
-        Model::preventLazyLoading(! App::isProduction());
-        Model::shouldBeStrict(! App::isProduction());
-        Model::unguard();
-
-        Password::defaults(fn () => App::isProduction() ? Password::min(8)->max(24)->uncompromised() : null);
-
         Date::use(CarbonImmutable::class);
 
-        // RedirectIfAuthenticated::redirectUsing(fn () => '/');
+        DB::prohibitDestructiveCommands(App::isProduction());
 
         LogViewer::auth(fn () => App::isLocal());
+
+        Model::shouldBeStrict((bool) App::environment(['local', 'testing']));
+        Model::unguard();
+
+        Password::defaults(fn () => when(App::isProduction(), Password::min(8)->max(24)->uncompromised()));
+
+        RedirectIfAuthenticated::redirectUsing(fn () => route('dashboard'));
     }
 }
