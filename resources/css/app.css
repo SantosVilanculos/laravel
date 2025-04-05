@@ -12,19 +12,11 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-* {
-    overscroll-behavior: contain;
-}
-
-html:focus-within {
-    scroll-behavior: smooth;
+[x-cloak] {
+    display: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html:focus-within {
-        scroll-behavior: auto;
-    }
-
     *,
     *::before,
     *::after {
@@ -33,8 +25,4 @@ html:focus-within {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-}
-
-[x-cloak] {
-    display: none !important;
 }

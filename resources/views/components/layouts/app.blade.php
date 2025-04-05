@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-100 font-sans" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+    class="h-full bg-gray-100 **:overscroll-contain focus-within:scroll-smooth motion-reduce:focus-within:scroll-auto"
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +22,7 @@
         @stack('assets')
     </head>
 
-    <body class="h-full">
+    <body class="h-full font-sans text-sm/6 text-gray-900 antialiased">
         <div class="min-h-full">
             <nav x-data="{ open: false }" class="bg-gray-800">
                 <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
