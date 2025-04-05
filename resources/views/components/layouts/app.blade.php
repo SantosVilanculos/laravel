@@ -7,9 +7,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="48x48 32x32 16x16" type="image/x-icon" />
+        <link rel="icon" href="{{ asset('favicon.svg') }}" sizes="any" type="image/svg+xml" />
         <title>{{ config('app.name') }}</title>
 
-        <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 
         <link rel="stylesheet" href="{{ asset('vendor/inter/4.1/inter.min.css') }}" />
 
