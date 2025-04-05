@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "bmewburn.vscode-intelephense-client",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "laravel.vscode-laravel",
+        "open-southeners.laravel-pint",
+    ],
+    "unwantedRecommendations": []
+}
