@@ -9,6 +9,7 @@
 
         <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="48x48 32x32 16x16" type="image/x-icon" />
         <link rel="icon" href="{{ asset('favicon.svg') }}" sizes="any" type="image/svg+xml" />
+
         <title>{{ config('app.name') }}</title>
         <meta name="description" content="" />
 
@@ -24,6 +25,7 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="" />
         <meta name="twitter:creator" content="" />
+
         <link rel="stylesheet" href="{{ asset('vendor/inter/4.1/inter.min.css') }}" />
 
         @livewireStyles
@@ -32,7 +34,7 @@
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @endif
 
-        @stack('assets')
+        @stack('head')
     </head>
 
     <body class="h-full font-sans text-sm/6 text-gray-900 antialiased">
@@ -107,7 +109,7 @@
                                     class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
                                 >
                                     <span class="absolute -inset-1.5"></span>
-                                    <span class="sr-only">View notifications</span>
+                                    <span class="sr-only">{{ __('View notifications') }}</span>
                                     <svg
                                         class="size-6"
                                         fill="none"
@@ -144,7 +146,7 @@
 
                                     {{--
                                         Dropdown menu, show/hide based on menu state.
-
+                                        
                                         Entering: "transition ease-out duration-100"
                                         From: "transform opacity-0 scale-95"
                                         To: "transform opacity-100 scale-100"
@@ -372,6 +374,6 @@
 
         @livewireScripts
 
-        @stack('scripts')
+        @stack('body')
     </body>
 </html>
