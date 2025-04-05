@@ -42,7 +42,7 @@
                                         ])
                                         aria-current="page"
                                     >
-                                        Dashboard
+                                        {{ __('Dashboard') }}
                                     </a>
                                     <a
                                         href="#"
@@ -120,7 +120,7 @@
                                             aria-haspopup="true"
                                         >
                                             <span class="absolute -inset-1.5"></span>
-                                            <span class="sr-only">Open user menu</span>
+                                            <span class="sr-only">{{ __('Open user menu') }}</span>
                                             <img
                                                 class="size-8 rounded-full"
                                                 src="{{ Storage::disk('public')->url('0450249b131eec36dc8333b7cf847bc4.png') }}"
@@ -131,7 +131,7 @@
 
                                     {{--
                                         Dropdown menu, show/hide based on menu state.
-                                        
+
                                         Entering: "transition ease-out duration-100"
                                         From: "transform opacity-0 scale-95"
                                         To: "transform opacity-100 scale-100"
@@ -165,7 +165,7 @@
                                             role="menuitem"
                                             tabindex="-1"
                                         >
-                                            Dashboard
+                                            {{ __('Dashboard') }}
                                         </a>
                                         <a
                                             href="#"
@@ -190,7 +190,7 @@
                                                 role="menuitem"
                                                 tabindex="-1"
                                             >
-                                                Sign out
+                                                {{ __('Sign out') }}
                                             </button>
                                         </form>
                                     </div>
@@ -207,7 +207,7 @@
                                 aria-expanded="false"
                             >
                                 <span class="absolute -inset-0.5"></span>
-                                <span class="sr-only">Open main menu</span>
+                                <span class="sr-only">{{ __('Open main menu') }}</span>
                                 {{-- Menu open: "hidden", Menu closed: "block" --}}
                                 <svg
                                     class="block size-6"
@@ -250,7 +250,7 @@
                             class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
                             aria-current="page"
                         >
-                            Dashboard
+                            {{ __('Dashboard') }}
                         </a>
                         <a
                             href="#"
@@ -295,7 +295,7 @@
                                 class="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
                             >
                                 <span class="absolute -inset-1.5"></span>
-                                <span class="sr-only">View notifications</span>
+                                <span class="sr-only">{{ __('View notifications') }}</span>
                                 <svg
                                     class="size-6"
                                     fill="none"
@@ -334,7 +334,7 @@
                                     type="submit"
                                     class="block w-full rounded-md px-3 py-2 text-left text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                                 >
-                                    Sign out
+                                    {{ __('Sign out') }}
                                 </button>
                             </form>
                         </div>
