@@ -29,7 +29,11 @@
                     <div class="flex h-16 items-center justify-between">
                         <div class="flex items-center">
                             <div class="shrink-0">
-                                <img class="size-8" src="{{ asset('favicon.svg') }}" alt="{{ config('app.name') }}" />
+                                <img
+                                    class="size-8 object-contain"
+                                    src="{{ asset('favicon.svg') }}"
+                                    alt="{{ config('app.name') }}"
+                                />
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
@@ -45,13 +49,13 @@
                                         {{ __('Dashboard') }}
                                     </a>
                                     <a
-                                        href="{{ route('log-viewer.index') }}"
+                                        href="#"
                                         @class([
                                             'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white',
                                             'bg-gray-900 text-white' => false,
                                         ])
                                     >
-                                        {{ __('Logs') }}
+                                        Lorem, ipsum.
                                     </a>
                                     <a
                                         href="#"
@@ -249,10 +253,10 @@
                             {{ __('Dashboard') }}
                         </a>
                         <a
-                            href="{{ route('log-viewer.index') }}"
+                            href="#"
                             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         >
-                            {{ __('Logs') }}
+                            Lorem, ipsum.
                         </a>
                         <a
                             href="#"
