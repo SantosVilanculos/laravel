@@ -121,11 +121,7 @@
                                         >
                                             <span class="absolute -inset-1.5"></span>
                                             <span class="sr-only">{{ __('Open user menu') }}</span>
-                                            <img
-                                                class="size-8 rounded-full"
-                                                src="{{ Storage::disk('public')->url('0450249b131eec36dc8333b7cf847bc4.png') }}"
-                                                alt=""
-                                            />
+                                            <img class="size-8 rounded-full" src="{{ asset('default.svg') }}" alt="" />
                                         </button>
                                     </div>
 
@@ -281,8 +277,8 @@
                         <div class="flex items-center px-5">
                             <div class="shrink-0">
                                 <img
-                                    class="size-10 rounded-full"
-                                    src="{{ Storage::disk('public')->url('0450249b131eec36dc8333b7cf847bc4.png') }}"
+                                    class="size-10 rounded-full text-gray-300"
+                                    src="{{ asset('default.svg') }}"
                                     alt=""
                                 />
                             </div>
