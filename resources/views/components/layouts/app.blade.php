@@ -45,13 +45,13 @@
                                         {{ __('Dashboard') }}
                                     </a>
                                     <a
-                                        href="#"
+                                        href="{{ route('log-viewer.index') }}"
                                         @class([
                                             'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white',
                                             'bg-gray-900 text-white' => false,
                                         ])
                                     >
-                                        Lorem, ipsum.
+                                        {{ __('Logs') }}
                                     </a>
                                     <a
                                         href="#"
@@ -156,12 +156,12 @@
                                             href="#"
                                             @class([
                                                 'block px-4 py-2 text-sm text-gray-700',
-                                                'bg-gray-100 outline-none' => true,
+                                                'bg-gray-100 outline-none' => false,
                                             ])
                                             role="menuitem"
                                             tabindex="-1"
                                         >
-                                            {{ __('Dashboard') }}
+                                            Lorem, ipsum.
                                         </a>
                                         <a
                                             href="#"
@@ -249,10 +249,10 @@
                             {{ __('Dashboard') }}
                         </a>
                         <a
-                            href="#"
+                            href="{{ route('log-viewer.index') }}"
                             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         >
-                            Lorem, ipsum.
+                            {{ __('Logs') }}
                         </a>
                         <a
                             href="#"
