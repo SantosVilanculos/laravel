@@ -8,8 +8,6 @@ if [ -f ./composer.lock ]; then
     php artisan key:generate
     php artisan storage:link
 
-    php artisan ide-helper:generate
-    php artisan ide-helper:models -N
     php artisan vendor:publish --tag=log-viewer-assets
 
     touch ./database/database.sqlite
