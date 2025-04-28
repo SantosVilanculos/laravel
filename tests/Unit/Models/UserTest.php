@@ -97,7 +97,7 @@ test('get hidden', function (): void {
 });
 
 test('get casts', function (): void {
-    $user = User::factory()->create();
+    $user = User::factory()->create(['password' => 'password']);
 
     expect($user->getCasts())
         ->toMatchArray(
@@ -107,6 +107,13 @@ test('get casts', function (): void {
                 'password' => 'hashed',
             ]
         );
+
+    // email_verified_at
+    $this->assertInstanceOf(Carbon\CarbonImmutable::class, $user->email_verified_at);
+
+    // password
+    $this->assertTrue(Hash::isHashed($user->password));
+    $this->assertTrue(Hash::check('password', $user->password));
 });
 
 test('email', function (): void {
@@ -114,19 +121,3 @@ test('email', function (): void {
 
     User::factory()->create(['email' => 'johndoe@example.test']);
 })->throws(UniqueConstraintViolationException::class);
-
-test('email_verified_at', function (): void {
-    $user = User::factory()->create();
-
-    $user->refresh();
-
-    $this->assertInstanceOf(Carbon\CarbonImmutable::class, $user->email_verified_at);
-});
-
-test('password', function (): void {
-    $user = User::factory()->create(['password' => 'password']);
-
-    $this->assertTrue(Hash::isHashed($user->password));
-
-    $this->assertTrue(Hash::check('password', $user->password));
-});
