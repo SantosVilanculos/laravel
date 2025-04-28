@@ -100,7 +100,7 @@ test('get casts', function (): void {
     $user = User::factory()->create(['password' => 'password']);
 
     expect($user->getCasts())
-        ->toMatchArray(
+        ->toBe(
             [
                 'id' => 'int',
                 'email_verified_at' => 'datetime',
