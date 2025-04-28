@@ -8,9 +8,17 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 
 test('create', function (): void {
+    $this->freezeTime();
+    $now = now()->format('Y-m-d H:i:s');
+
     $user = User::factory()->create();
 
     $this->assertModelExists($user);
+
+    $user->refresh();
+
+    expect($user->created_at->format('Y-m-d H:i:s'))->toBe($now);
+    expect($user->updated_at->format('Y-m-d H:i:s'))->toBe($now);
 });
 
 test('read', function (): void {
@@ -29,6 +37,9 @@ test('update', function (): void {
         'email' => 'johndoe@example.test',
     ]);
 
+    $this->freezeTime();
+    $now = now()->format('Y-m-d H:i:s');
+
     $user->update(
         [
             'name' => 'Jane Doe',
@@ -36,13 +47,17 @@ test('update', function (): void {
         ],
     );
 
-    expect(Arr::only($user->fresh()->toArray(), ['name', 'email']))
+    $user->refresh();
+
+    expect(Arr::only($user->toArray(), ['name', 'email']))
         ->toBe(
             [
                 'name' => 'Jane Doe',
                 'email' => 'janedoe@example.test',
             ],
         );
+
+    expect($user->updated_at->format('Y-m-d H:i:s'))->toBe($now);
 });
 
 test('delete', function (): void {
@@ -110,6 +125,8 @@ test('email_verified_at', function (): void {
 
 test('password', function (): void {
     $user = User::factory()->create(['password' => 'password']);
+
+    $this->assertTrue(Hash::isHashed($user->password));
 
     $this->assertTrue(Hash::check('password', $user->password));
 });
