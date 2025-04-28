@@ -37,8 +37,8 @@ test('update', function (): void {
         'email' => 'johndoe@example.test',
     ]);
 
-    $this->freezeTime();
-    $now = now()->format('Y-m-d H:i:s');
+    $now = now()->addDay()->format('Y-m-d H:i:s');
+    $this->travelTo($now);
 
     $user->update(
         [
