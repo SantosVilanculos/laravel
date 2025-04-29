@@ -94,6 +94,8 @@ test('get hidden', function (): void {
 
     expect($user->getHidden())
         ->toBe(['password', 'remember_token']);
+
+    expect($user->toArray())->not->toHaveKeys(['password', 'remember_token']);
 });
 
 test('get casts', function (): void {
