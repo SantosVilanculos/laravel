@@ -8,8 +8,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 
 test('create', function (): void {
-    $this->freezeTime();
-    $now = now()->format('Y-m-d H:i:s');
+    $now = $this->freezeTime()->format('Y-m-d H:i:s');
 
     $user = User::factory()->create();
 
@@ -37,8 +36,7 @@ test('update', function (): void {
         'email' => 'johndoe@example.test',
     ]);
 
-    $now = now()->addDay()->format('Y-m-d H:i:s');
-    $this->travelTo($now);
+    $this->travelTo($now = now()->addDay()->format('Y-m-d H:i:s'));
 
     $user->update(
         [
