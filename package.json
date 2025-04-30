@@ -7,13 +7,13 @@
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.1.4",
-        "axios": "^1.8.4",
+        "axios": "^1.9.0",
         "concurrently": "^9.1.2",
         "laravel-vite-plugin": "^1.2.0",
         "prettier": "^3.5.3",
         "prettier-plugin-blade": "^2.1.21",
         "prettier-plugin-tailwindcss": "^0.6.11",
-        "sweetalert2": "^11.18.0",
+        "sweetalert2": "^11.19.1",
         "tailwindcss": "^4.1.4",
         "vite": "^5.4.18"
     }
