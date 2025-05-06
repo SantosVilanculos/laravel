@@ -2,18 +2,13 @@
     "arrowParens": "avoid",
     "overrides": [
         {
-            "files": [
-                "*.blade.php"
-            ],
+            "files": ["*.blade.php"],
             "options": {
                 "parser": "blade"
             }
         }
     ],
-    "plugins": [
-        "prettier-plugin-blade",
-        "prettier-plugin-tailwindcss"
-    ],
+    "plugins": ["prettier-plugin-blade", "prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
     "printWidth": 120,
     "semi": true,
     "singleQuote": true,
