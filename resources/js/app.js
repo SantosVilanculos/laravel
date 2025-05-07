@@ -1,5 +1,5 @@
-import './bootstrap.js';
 import Swal from 'sweetalert2';
+import './bootstrap.js';
 
 document.addEventListener('livewire:init', () => {
     Livewire.on('Swal', ({ titleText = undefined, text = undefined, icon = undefined }) => {
