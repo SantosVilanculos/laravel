@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-    class="h-full bg-gray-100 **:overscroll-contain focus-within:scroll-smooth motion-reduce:focus-within:scroll-auto"
+    class="h-full bg-zinc-50 **:overscroll-contain focus-within:scroll-smooth motion-reduce:focus-within:scroll-auto"
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
 >
     <head>

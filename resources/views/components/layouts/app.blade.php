@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-    class="h-full bg-gray-100 **:overscroll-contain focus-within:scroll-smooth motion-reduce:focus-within:scroll-auto"
+    class="h-full bg-zinc-50 **:overscroll-contain focus-within:scroll-smooth motion-reduce:focus-within:scroll-auto"
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
 >
     <head>
@@ -54,7 +54,7 @@
                                 <div class="ml-10 flex items-baseline space-x-4">
                                     {{-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --}}
                                     <a
-                                        href="#"
+                                        href="{{ route('dashboard') }}"
                                         @class([
                                             'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white',
                                             'bg-gray-900 text-white' => true,
@@ -140,13 +140,26 @@
                                         >
                                             <span class="absolute -inset-1.5"></span>
                                             <span class="sr-only">{{ __('Open user menu') }}</span>
-                                            <img class="size-8 rounded-full" src="{{ asset('default.svg') }}" alt="" />
+
+                                            @unless (is_null(Auth::user()->image))
+                                                <img
+                                                    src="{{ Storage::disk('public')->url(Auth::user()->image) }}"
+                                                    alt=""
+                                                    class="size-8 rounded-full object-cover"
+                                                />
+                                            @else
+                                                <img
+                                                    src="{{ asset('default.svg') }}"
+                                                    alt=""
+                                                    class="size-8 rounded-full object-cover"
+                                                />
+                                            @endunless
                                         </button>
                                     </div>
 
                                     {{--
                                         Dropdown menu, show/hide based on menu state.
-
+                                        
                                         Entering: "transition ease-out duration-100"
                                         From: "transform opacity-0 scale-95"
                                         To: "transform opacity-100 scale-100"
@@ -183,11 +196,8 @@
                                             Lorem, ipsum.
                                         </a>
                                         <a
-                                            href="{{ route('profile') }}"
-                                            @class([
-                                                'block px-4 py-2 text-sm text-gray-700',
-                                                'bg-gray-100 outline-none' => false,
-                                            ])
+                                            href="{{ route('settings.profile') }}"
+                                            @class(['block px-4 py-2 text-sm text-gray-700', 'bg-gray-100 outline-none' => Route::is('settings.profile')])
                                             tabindex="-1"
                                         >
                                             {{ __('Profile') }}
@@ -258,7 +268,7 @@
                     <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
                         {{-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --}}
                         <a
-                            href="#"
+                            href="{{ route('dashboard') }}"
                             class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
                             aria-current="page"
                         >
@@ -292,11 +302,19 @@
                     <div class="border-t border-gray-700 pt-4 pb-3">
                         <div class="flex items-center px-5">
                             <div class="shrink-0">
-                                <img
-                                    class="size-10 rounded-full text-gray-300"
-                                    src="{{ asset('default.svg') }}"
-                                    alt=""
-                                />
+                                @unless (is_null(Auth::user()->image))
+                                    <img
+                                        src="{{ Storage::disk('public')->url(Auth::user()->image) }}"
+                                        alt=""
+                                        class="size-10 rounded-full object-cover"
+                                    />
+                                @else
+                                    <img
+                                        src="{{ asset('default.svg') }}"
+                                        alt=""
+                                        class="size-10 rounded-full object-cover"
+                                    />
+                                @endunless
                             </div>
                             <div class="ml-3">
                                 <div class="text-base/5 font-medium text-white">Test User</div>
@@ -333,7 +351,7 @@
                                 Lorem, ipsum.
                             </a>
                             <a
-                                href="{{ route('profile') }}"
+                                href="{{ route('settings.profile') }}"
                                 class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                             >
                                 {{ __('Profile') }}
@@ -354,15 +372,15 @@
                 </div>
             </nav>
 
-            @isset($header)
+            @hasSection('header')
                 <header class="bg-white shadow">
                     <div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-                        {{ $header }}
+                        @yield('header')
                     </div>
                 </header>
-            @endisset
+            @endif
 
-            <main>
+            <div>
                 <div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
                     @session('status')
                         <div class="mb-6 rounded-lg bg-blue-50 p-4 text-slate-900 ring-1 ring-blue-600">
@@ -372,7 +390,7 @@
 
                     {{ $slot }}
                 </div>
-            </main>
+            </div>
         </div>
 
         @livewireScripts

@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import './bootstrap.js';
 
 document.addEventListener('livewire:init', () => {
-    Livewire.on('Swal', ({ titleText = undefined, text = undefined, icon = undefined }) => {
+    Livewire.on('message', ({ titleText = undefined, text = undefined, icon = undefined }) => {
         // titleText?: string | undefined
         // text?: string | undefined
         // icon?: string<'success' | 'error' | 'warning' | 'info' | 'question'> | undefined

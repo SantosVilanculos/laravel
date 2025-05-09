@@ -14,7 +14,7 @@
 
                 <div>
                     <x-ui.label for="email">{{ __('Email address') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="email"
                             name="email"
@@ -25,13 +25,13 @@
                         />
                     </div>
                     @error('email')
-                        <p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>
+                        <p class="mt-3 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
                     <x-ui.label for="password">{{ __('Password') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="password"
                             name="password"
@@ -42,13 +42,13 @@
                         />
                     </div>
                     @error('password')
-                        <p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>
+                        <p class="mt-3 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
                     <x-ui.label for="password_confirmation">{{ __('Password confirmation') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="password"
                             name="password_confirmation"
@@ -58,12 +58,12 @@
                         />
                     </div>
                     @error('password_confirmation')
-                        <p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>
+                        <p class="mt-3 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
-                    <x-ui.button class="w-full" type="submit" variant="accent">
+                    <x-ui.button class="w-full" type="submit" variant="primary">
                         {{ __('Reset Password') }}
                     </x-ui.button>
                 </div>

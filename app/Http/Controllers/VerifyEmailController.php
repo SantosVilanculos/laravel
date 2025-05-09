@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -13,6 +13,7 @@ class VerifyEmailController
 {
     public function __invoke(EmailVerificationRequest $request): RedirectResponse
     {
+        /** @var \App\Models\User */
         $user = $request->user();
 
         if ($user->hasVerifiedEmail()) {

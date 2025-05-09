@@ -1,6 +1,6 @@
 <div class="grid shrink-0 grid-cols-1 focus-within:relative focus-within:isolate">
     <select
-        {{ $attributes->merge(['class' => 'col-start-1 row-start-1 w-full appearance-none rounded-md py-1.5 pl-3 pr-7 text-base text-gray-500 placeholder:text-gray-400 focus:outline-2 bg-white focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 outline-1 -outline-offset-1 outline-gray-300']) }}
+        {{ $attributes->merge(['class' => 'col-start-1 row-start-1 w-full appearance-none rounded-md py-1.5 pl-3 pr-7 text-base text-gray-500 placeholder:text-gray-400 focus:outline-2 bg-white focus:-outline-offset-2 focus:outline-zaffre-600 sm:text-sm/6 outline-1 -outline-offset-1 outline-gray-300']) }}
     >
         {{ $slot }}
     </select>

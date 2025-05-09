@@ -2,19 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature\Auth;
-
 use App\Models\User;
 use Illuminate\Testing\TestResponse;
 
-test('login screen can be rendered', function () {
+test('login screen can be rendered', function (): void {
     /** @var TestResponse */
     $response = $this->get(route('login'));
 
     $response->assertStatus(200);
 });
 
-test('users can authenticate using the login screen', function () {
+test('users can authenticate using the login screen', function (): void {
     $user = User::factory()->create();
 
     /** @var TestResponse */
@@ -28,7 +26,7 @@ test('users can authenticate using the login screen', function () {
 
 });
 
-test('users can not authenticate with invalid password', function () {
+test('users can not authenticate with invalid password', function (): void {
     $user = User::factory()->create();
 
     $this->post(route('login'), [
@@ -39,7 +37,7 @@ test('users can not authenticate with invalid password', function () {
     $this->assertGuest();
 });
 
-test('users can logout', function () {
+test('users can logout', function (): void {
     $user = User::factory()->create();
 
     /** @var TestResponse */

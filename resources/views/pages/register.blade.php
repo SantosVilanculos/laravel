@@ -12,7 +12,7 @@
 
                 <div>
                     <x-ui.label for="name">{{ __('Name') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="text"
                             name="name"
@@ -24,13 +24,13 @@
                         />
                     </div>
                     @error('name')
-                        <p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>
+                        <p class="mt-3 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
                     <x-ui.label for="email">{{ __('Email address') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="email"
                             name="email"
@@ -41,13 +41,13 @@
                         />
                     </div>
                     @error('email')
-                        <p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>
+                        <p class="mt-3 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
                     <x-ui.label for="password">{{ __('Password') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="password"
                             name="password"
@@ -58,13 +58,13 @@
                         />
                     </div>
                     @error('password')
-                        <p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>
+                        <p class="mt-3 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
                     <x-ui.label for="password_confirmation">{{ __('Confirm password') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="password"
                             name="password_confirmation"
@@ -76,15 +76,15 @@
                 </div>
 
                 <div>
-                    <x-ui.button class="w-full" type="submit" variant="accent">
+                    <x-ui.button class="w-full" type="submit" variant="primary">
                         {{ __('Sign up') }}
                     </x-ui.button>
                 </div>
             </form>
 
-            <p class="mt-10 text-center text-sm text-gray-500">
+            <p class="mt-10 text-center text-sm/6 text-zinc-500">
                 {{ __('Already have an account?') }}
-                <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <a href="{{ route('login') }}" class="text-zaffre-600 hover:text-zaffre-500 font-medium">
                     {{ __('Log in') }}
                 </a>
             </p>

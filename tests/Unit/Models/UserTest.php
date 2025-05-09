@@ -78,9 +78,11 @@ test('to array', function (): void {
         ->toBe(
             [
                 'id',
+                'image',
                 'name',
                 'email',
                 'email_verified_at',
+                'last_logged_in_at',
                 'created_at',
                 'updated_at',
             ]
@@ -105,6 +107,7 @@ test('get casts', function (): void {
                 'id' => 'int',
                 'email_verified_at' => 'datetime',
                 'password' => 'hashed',
+                'last_logged_in_at' => 'datetime',
             ]
         );
 

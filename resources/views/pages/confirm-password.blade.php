@@ -10,13 +10,13 @@
             <form class="space-y-6" action="{{ route('password.confirm') }}" method="POST">
                 @csrf
 
-                <p class="text-sm text-gray-600">
+                <p class="text-sm/6 text-zinc-500">
                     {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
                 </p>
 
                 <div>
                     <x-ui.label for="password">{{ __('Password') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="password"
                             name="password"
@@ -27,12 +27,12 @@
                         />
                     </div>
                     @error('password')
-                        <p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>
+                        <p class="mt-3 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
-                    <x-ui.button class="w-full" type="submit" variant="accent">
+                    <x-ui.button class="w-full" type="submit" variant="primary">
                         {{ __('Confirm') }}
                     </x-ui.button>
                 </div>

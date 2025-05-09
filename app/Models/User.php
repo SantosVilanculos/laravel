@@ -11,11 +11,13 @@ use Illuminate\Notifications\Notifiable;
 
 /**
  * @property-read int $id
+ * @property-read string $image
  * @property-read string $name
  * @property-read string $email
  * @property-read \Carbon\CarbonImmutable|null $email_verified_at
  * @property-read string $password
  * @property-read string|null $remember_token
+ * @property-read \Carbon\CarbonImmutable|null $last_logged_in_at
  * @property-read \Carbon\CarbonImmutable|null $created_at
  * @property-read \Carbon\CarbonImmutable|null $updated_at
  */
@@ -34,6 +36,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'last_logged_in_at' => 'datetime',
         ];
     }
 }

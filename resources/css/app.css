@@ -10,6 +10,36 @@
     --font-sans:
         'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors */
+
+    --color-zaffre-50: #e9eaff;
+    --color-zaffre-100: #c7c9fe;
+    --color-zaffre-200: #a0a6fe;
+    --color-zaffre-300: #7483ff;
+    --color-zaffre-400: #4f65fe;
+    --color-zaffre-500: #1d46fa;
+    --color-zaffre-600: #183cee;
+    --color-zaffre-700: #0030e1;
+    --color-zaffre-800: #0022d6;
+    --color-zaffre-900: #0000c7;
+
+    /* --color-zaffre-50: oklch(94% 0.03 268); */
+    /* --color-zaffre-100: oklch(82% 0.11 270); */
+    /* --color-zaffre-200: oklch(70% 0.17 271); */
+    /* --color-zaffre-300: oklch(60% 0.22 272); */
+    /* --color-zaffre-400: oklch(53% 0.25 272); */
+    /* --color-zaffre-500: oklch(45% 0.28 272); */
+    /* --color-zaffre-600: oklch(41% 0.28 272); */
+    /* --color-zaffre-700: oklch(36% 0.29 271); */
+    /* --color-zaffre-800: oklch(32% 0.29 271); */
+    /* --color-zaffre-900: oklch(24% 0.28 270); */
+}
+
+:root {
+    font-feature-settings:
+        'liga' 1,
+        'calt' 1;
 }
 
 [x-cloak] {

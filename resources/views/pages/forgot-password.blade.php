@@ -16,13 +16,13 @@
             <form class="space-y-6" action="{{ route('password.email') }}" method="POST">
                 @csrf
 
-                <p class="text-sm text-gray-600">
+                <p class="text-sm/6 text-zinc-500">
                     {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
                 </p>
 
                 <div>
                     <x-ui.label for="email">{{ __('Email address') }}</x-ui.label>
-                    <div class="mt-1.5">
+                    <div class="mt-3">
                         <x-ui.input
                             type="email"
                             name="email"
@@ -34,21 +34,21 @@
                         />
                     </div>
                     @error('email')
-                        <p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>
+                        <p class="mt-3 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div>
-                    <x-ui.button class="w-full" type="submit" variant="accent">
+                    <x-ui.button class="w-full" type="submit" variant="primary">
                         {{ __('Email password reset link') }}
                     </x-ui.button>
                 </div>
             </form>
         </div>
 
-        <p class="mt-10 text-center text-sm text-gray-500">
+        <p class="mt-10 text-center text-sm/6 text-zinc-500">
             {{ __('Or, return to') }}
-            <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
+            <a href="{{ route('login') }}" class="text-zaffre-600 hover:text-zaffre-500 font-medium">
                 {{ __('Log in') }}
             </a>
         </p>

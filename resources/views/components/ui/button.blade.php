@@ -1,13 +1,12 @@
-@props(['variant' => 'default'])
+@props(['variant' => 'secondary'])
 
 <button
     {{
         $attributes
             ->class([
-                'group relative isolate inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-semibold',
-                'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' => $variant === 'accent',
-                'bg-red-600 text-white shadow-xs hover:bg-red-500' => $variant === 'danger',
-                'bg-white text-gray-900 shadow-xs ring-1 ring-gray-300 hover:bg-gray-50' => $variant === 'default' || ! in_array($variant, ['accent', 'default', 'ghost', 'danger']),
+                'group relative isolate inline-flex items-center justify-center rounded-md px-3 h-9 text-sm font-medium',
+                'bg-zaffre-600 text-white shadow-sm hover:bg-zaffre-500' => $variant === 'primary',
+                'bg-white text-gray-900 shadow-xs border border-zinc-300 disabled:border-zinc-200  hover:bg-gray-50' => $variant === 'secondary',
             ])
             ->merge(['type' => 'submit'])
     }}

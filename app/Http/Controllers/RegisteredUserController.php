@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -31,7 +31,11 @@ class RegisteredUserController
             'password' => ['required', 'confirmed', Password::default()],
         ]);
 
-        $user = User::create($request->only(['name', 'email', 'password']));
+        $user = User::create([
+            'name' => $request->string('name'),
+            'email' => $request->string('email'),
+            'password' => $request->string('email'),
+        ]);
 
         event(new Registered($user));
 

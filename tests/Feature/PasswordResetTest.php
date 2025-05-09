@@ -2,22 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature\Auth;
-
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Testing\TestResponse;
 
-test('reset password link screen can be rendered', function () {
+test('reset password link screen can be rendered', function (): void {
     /** @var TestResponse */
     $response = $this->get(route('password.request'));
 
     $response->assertStatus(200);
 });
 
-test('reset password link can be requested', function () {
+test('reset password link can be requested', function (): void {
     Notification::fake();
 
     $user = User::factory()->create();
@@ -27,14 +25,14 @@ test('reset password link can be requested', function () {
     Notification::assertSentTo($user, ResetPassword::class);
 });
 
-test('reset password screen can be rendered', function () {
+test('reset password screen can be rendered', function (): void {
     Notification::fake();
 
     $user = User::factory()->create();
 
     $this->post(route('password.email'), ['email' => $user->email]);
 
-    Notification::assertSentTo($user, ResetPassword::class, function ($notification) {
+    Notification::assertSentTo($user, ResetPassword::class, function ($notification): true {
         /** @var TestResponse */
         $response = $this->get(route('password.reset', ['token' => $notification->token]));
 
@@ -44,14 +42,14 @@ test('reset password screen can be rendered', function () {
     });
 });
 
-test('password  can be reset with valid token', function () {
+test('password  can be reset with valid token', function (): void {
     Notification::fake();
 
     $user = User::factory()->create();
 
     $this->post(route('password.email'), ['email' => $user->email]);
 
-    Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+    Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): true {
         /** @var TestResponse */
         $response = $this->post(route('password.store'), [
             'token' => $notification->token,

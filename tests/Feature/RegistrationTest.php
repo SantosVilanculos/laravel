@@ -2,18 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature\Auth;
-
 use Illuminate\Testing\TestResponse;
 
-test('registration screen can be rendered', function () {
+test('registration screen can be rendered', function (): void {
     /** @var TestResponse */
     $response = $this->get(route('register'));
 
     $response->assertStatus(200);
 });
 
-test('new users can register', function () {
+test('new users can register', function (): void {
     /** @var TestResponse */
     $response = $this->post(route('register'), [
         'name' => 'Test User',

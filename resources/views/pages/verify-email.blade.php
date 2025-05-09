@@ -18,17 +18,15 @@
             <div class="space-y-6">
                 @csrf
 
-                <div>
-                    <p class="text-sm text-gray-600">
-                        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-                    </p>
-                </div>
+                <p class="text-sm/6 text-zinc-500">
+                    {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+                </p>
 
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-y-3">
                     <form action="{{ route('verification.send') }}" method="POST">
                         @csrf
 
-                        <x-ui.button class="w-full" type="submit" variant="accent">
+                        <x-ui.button class="w-full" type="submit" variant="primary">
                             {{ __('Resend verification email') }}
                         </x-ui.button>
                     </form>
@@ -36,7 +34,7 @@
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
 
-                        <x-ui.button class="w-full" type="submit" variant="default">
+                        <x-ui.button class="w-full" type="submit">
                             {{ __('Log out') }}
                         </x-ui.button>
                     </form>
