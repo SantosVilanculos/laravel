@@ -146,7 +146,7 @@
 
                                     {{--
                                         Dropdown menu, show/hide based on menu state.
-                                        
+
                                         Entering: "transition ease-out duration-100"
                                         From: "transform opacity-0 scale-95"
                                         To: "transform opacity-100 scale-100"
@@ -183,25 +183,22 @@
                                             Lorem, ipsum.
                                         </a>
                                         <a
-                                            href="#"
+                                            href="{{ route('profile') }}"
                                             @class([
                                                 'block px-4 py-2 text-sm text-gray-700',
                                                 'bg-gray-100 outline-none' => false,
                                             ])
                                             tabindex="-1"
                                         >
-                                            Lorem, ipsum.
+                                            {{ __('Profile') }}
                                         </a>
 
-                                        <form action="#" method="POST">
+                                        <form action="{{ route('logout') }}" method="POST">
                                             @csrf
 
                                             <button
                                                 type="submit"
-                                                @class([
-                                                    'block px-4 py-2 text-sm text-gray-700',
-                                                    'bg-gray-100 outline-none' => false,
-                                                ])
+                                                class="block px-4 py-2 text-sm text-gray-700"
                                                 role="menuitem"
                                                 tabindex="-1"
                                             >
@@ -336,13 +333,13 @@
                                 Lorem, ipsum.
                             </a>
                             <a
-                                href="#"
+                                href="{{ route('profile') }}"
                                 class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                             >
-                                Lorem, ipsum.
+                                {{ __('Profile') }}
                             </a>
 
-                            <form action="#" method="POST">
+                            <form action="{{ route('logout') }}" method="POST">
                                 @csrf
 
                                 <button
@@ -367,6 +364,12 @@
 
             <main>
                 <div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+                    @session('status')
+                        <div class="mb-6 rounded-lg bg-blue-50 p-4 text-slate-900 ring-1 ring-blue-600">
+                            <p class="text-sm text-gray-600">{{ $value }}</p>
+                        </div>
+                    @endsession
+
                     {{ $slot }}
                 </div>
             </main>

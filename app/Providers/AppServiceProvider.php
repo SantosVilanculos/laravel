@@ -37,6 +37,6 @@ class AppServiceProvider extends ServiceProvider
         Model::shouldBeStrict((bool) App::environment(['local', 'testing']));
         Model::unguard();
 
-        Password::defaults(fn () => when(App::isProduction(), Password::min(8)->max(24)->uncompromised()));
+        Password::defaults(fn () => when(App::isProduction(), Password::min(8)->uncompromised()));
     }
 }
