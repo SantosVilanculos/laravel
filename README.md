@@ -1,12 +1,10 @@
-[![tests](https://img.shields.io/github/actions/workflow/status/SantosVilanculos/laravel/tests.yml?label=tests)](https://github.com/SantosVilanculos/laravel/actions)
-[![license](https://img.shields.io/github/license/SantosVilanculos/laravel)](https://github.com/SantosVilanculos/laravel/blob/main/LICENSE)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/santosvilanculos/laravel/tests.yml?label=tests)
+![Packagist Downloads](https://img.shields.io/packagist/dt/santosvilanculos/laravel)
+![Packagist Version](https://img.shields.io/packagist/v/santosvilanculos/laravel)
+![GitHub License](https://img.shields.io/github/license/santosvilanculos/laravel)
 
 ![screenshot](./screenshot.png)
 
 ```sh
-chmod +x ./install.sh && ./install.sh
-```
-
-```sh
-composer run dev
+laravel new --using=santosvilanculos/laravel
 ```
