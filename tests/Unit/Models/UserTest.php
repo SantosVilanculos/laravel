@@ -57,7 +57,7 @@ test('get casts', function (): void {
     $this->assertTrue(Hash::check('password', $user->password));
 });
 
-describe('email', function () {
+describe('email', function (): void {
     beforeEach(fn () => User::factory()->create(['email' => 'johndoe@example.test']));
 
     test('throws unique constraint violation exception', fn () => User::factory()->create(['email' => 'johndoe@example.test']))
@@ -68,7 +68,7 @@ describe('email', function () {
 });
 
 // laravel/scout
-test('to searchable array', function () {
+test('to searchable array', function (): void {
     $user = User::factory()->create();
 
     expect(array_keys($user->toSearchableArray()))->toEqualCanonicalizing(['id', 'name', 'email', 'created_at']);
