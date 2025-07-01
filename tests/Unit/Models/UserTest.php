@@ -11,8 +11,7 @@ test('to array', function (): void {
 
     $user->refresh();
 
-    expect($user->toArray())
-        ->toHaveSnakeCaseKeys();
+    expect($user->toArray())->toHaveSnakeCaseKeys();
 
     expect(array_keys($user->toArray()))
         ->toBe(
@@ -30,8 +29,7 @@ test('to array', function (): void {
 test('get hidden', function (): void {
     $user = User::factory()->create();
 
-    expect($user->getHidden())
-        ->toBe(['password', 'remember_token']);
+    expect($user->getHidden())->toBe(['password', 'remember_token']);
 
     expect($user->toArray())->not->toHaveKeys(['password', 'remember_token']);
 });
@@ -67,4 +65,11 @@ describe('email', function () {
 
     test('throws no exceptions', fn () => User::factory()->create(['email' => 'janedoe@example.test']))
         ->throwsNoExceptions();
+});
+
+// laravel/scout
+test('to searchable array', function () {
+    $user = User::factory()->create();
+
+    expect(array_keys($user->toSearchableArray()))->toEqualCanonicalizing(['id', 'name', 'email', 'created_at']);
 });

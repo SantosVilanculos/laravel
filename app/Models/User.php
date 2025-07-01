@@ -8,6 +8,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
+use Laravel\Scout\Searchable;
 
 /**
  * @property-read int $id
@@ -22,7 +24,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, Searchable;
 
     protected $hidden = [
         'password',
@@ -35,5 +37,21 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function shouldBeSearchable(): bool
+    {
+        return true;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function toSearchableArray(): array
+    {
+        return array_merge(Arr::only($this->toArray(), ['name', 'email']), [
+            'id' => (string) $this->id,
+            'created_at' => (string) $this->created_at,
+        ]);
     }
 }
