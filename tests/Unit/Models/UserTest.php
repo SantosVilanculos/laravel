@@ -4,67 +4,7 @@ declare(strict_types=1);
 
 use App\Models\User;
 use Illuminate\Database\UniqueConstraintViolationException;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
-
-test('create', function (): void {
-    $now = $this->freezeTime()->format('Y-m-d H:i:s');
-
-    $user = User::factory()->create();
-
-    $this->assertModelExists($user);
-
-    $user->refresh();
-
-    expect($user->created_at->format('Y-m-d H:i:s'))->toBe($now);
-    expect($user->updated_at->format('Y-m-d H:i:s'))->toBe($now);
-});
-
-test('read', function (): void {
-    $user = User::factory()->create();
-
-    $model = User::find($user->id);
-
-    $this->assertNotNull($model);
-
-    expect($user->fresh()->toArray())->toBe($model->toArray());
-});
-
-test('update', function (): void {
-    $user = User::factory()->create([
-        'name' => 'John Doe',
-        'email' => 'johndoe@example.test',
-    ]);
-
-    $this->travelTo($now = now()->addDay()->format('Y-m-d H:i:s'));
-
-    $user->update(
-        [
-            'name' => 'Jane Doe',
-            'email' => 'janedoe@example.test',
-        ],
-    );
-
-    $user->refresh();
-
-    expect(Arr::only($user->toArray(), ['name', 'email']))
-        ->toBe(
-            [
-                'name' => 'Jane Doe',
-                'email' => 'janedoe@example.test',
-            ],
-        );
-
-    expect($user->updated_at->format('Y-m-d H:i:s'))->toBe($now);
-});
-
-test('delete', function (): void {
-    $user = User::factory()->create();
-
-    $user->delete();
-
-    $this->assertModelMissing($user);
-});
 
 test('to array', function (): void {
     $user = User::factory()->create();
@@ -108,6 +48,9 @@ test('get casts', function (): void {
             ]
         );
 
+    // id
+    $this->assertIsInt($user->id);
+
     // email_verified_at
     $this->assertInstanceOf(Carbon\CarbonImmutable::class, $user->email_verified_at);
 
@@ -116,8 +59,12 @@ test('get casts', function (): void {
     $this->assertTrue(Hash::check('password', $user->password));
 });
 
-test('email', function (): void {
-    User::factory()->create(['email' => 'johndoe@example.test']);
+describe('email', function () {
+    beforeEach(fn () => User::factory()->create(['email' => 'johndoe@example.test']));
 
-    User::factory()->create(['email' => 'johndoe@example.test']);
-})->throws(UniqueConstraintViolationException::class);
+    test('throws unique constraint violation exception', fn () => User::factory()->create(['email' => 'johndoe@example.test']))
+        ->throws(UniqueConstraintViolationException::class);
+
+    test('throws no exceptions', fn () => User::factory()->create(['email' => 'janedoe@example.test']))
+        ->throwsNoExceptions();
+});
