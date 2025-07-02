@@ -2,8 +2,12 @@
 
 declare(strict_types=1);
 
-it('returns a successful response', function (): void {
-    $response = $this->get('/');
+use Illuminate\Http\Response;
 
-    $response->assertStatus(200);
-});
+it('returns a successful response', function (string $path): void {
+    $this->get($path)->assertStatus(Response::HTTP_OK);
+})->with([
+    '/',
+    '/up',
+    '/log-viewer',
+]);
