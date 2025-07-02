@@ -5,6 +5,8 @@
 
 ![screenshot](./screenshot.png)
 
+The skeleton application for the [Laravel framework](https://laravel.com/) and [Livewire](https://livewire.laravel.com/).
+
 ```sh
 laravel new --using=santosvilanculos/laravel
 ```
