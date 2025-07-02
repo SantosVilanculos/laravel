@@ -1,7 +1,7 @@
 {
-    "name": "santosvilanculos/laravel",
+    "name": "santosvilanculos/skeleton-livewire",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "The skeleton application for the Laravel framework and Livewire.",
     "keywords": [
         "laravel",
         "framework"
