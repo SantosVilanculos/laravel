@@ -26,8 +26,6 @@
         <meta name="twitter:site" content="" />
         <meta name="twitter:creator" content="" />
 
-        <link rel="stylesheet" href="{{ asset('vendor/inter/4.1/inter.min.css') }}" />
-
         @livewireStyles
 
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -146,7 +144,7 @@
 
                                     {{--
                                         Dropdown menu, show/hide based on menu state.
-                                        
+
                                         Entering: "transition ease-out duration-100"
                                         From: "transform opacity-0 scale-95"
                                         To: "transform opacity-100 scale-100"
