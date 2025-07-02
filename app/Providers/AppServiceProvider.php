@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
 
         JsonResource::withoutWrapping();
 
-        LogViewer::auth(fn () => (bool) App::environment(['local', 'testing']));
+        LogViewer::auth(fn (): bool => (bool) App::environment(['local', 'testing']));
 
         Model::shouldBeStrict((bool) App::environment(['local', 'testing']));
         Model::unguard();
